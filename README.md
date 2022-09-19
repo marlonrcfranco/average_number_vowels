@@ -9,7 +9,7 @@ Assumptions:
 2.      Input contains only English words and punctuation, words are separated by at least one whitespace character.
 3.      Input is small enough to fit in memory.
 
-Example:
+### Example:
 
 INPUT:
 ```
@@ -23,23 +23,24 @@ OUTPUT:
 ({a, e}, 4) -> 2
 ```
 
-Explanation:
+### Explanation:
 ```
 5 vowels in 2 words ("Platon", "bamboo") = 5/2 = 2.5
 2 vowels in 1 word ("boats") = 2/1 = 2
 2 vowels in 1 word ("made") = 2/1 = 2
 ```
 
-Inicializar dois HashMaps:
-   key -> value
- ({vowels}, wordLength) -> (wordCounter, averageNumberVowels)
+Initialize a HashMap:
+ - **key:** ({vowels}, wordLength) 
+ - **value:** (wordCounter, vowelsCounter, averageNumberVowels)
 
-
-Para cada palavra na lista:
- - Gerar a chave (key):
-   - obter as vogais da palavra
-   - obter o tamanho da palavra
- - Inserir no HashMap:
-   - Incrementa o contador no HashMap para a key gerada
-   - Calcular a media de vogais por palavras encontradas e amazenar no averageNumberVowels
+For each word in the list:
+ - Sanitize word
+ - Get vowels from word
+ - Generate key
+ - Generate value:
+   - Increment wordCounter
+   - Increment vowelCounter
+   - Calculate average (vowelCounter / wordCounter)
+ - Insert key,value in the HashMap
 
