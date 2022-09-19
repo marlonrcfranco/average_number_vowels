@@ -9,10 +9,18 @@ import java.util.List;
 public class FileUtils {
 
     public static String readInput() {
+        return readInput("INPUT.TXT");
+    }
+
+    public static String readInput(String inputFile) {
         return null;
     }
 
     public static void writeOutput(List<VowelKeyDto> output) {
+        writeOutput(output, "OUTPUT.TXT");
+    }
+
+    public static void writeOutput(List<VowelKeyDto> output, String outputFile) {
 
     }
 

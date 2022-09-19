@@ -22,3 +22,11 @@ OUTPUT:
 ({a, o}, 5) -> 2
 ({a, e}, 4) -> 2
 ```
+
+Explanation:
+```
+5 vowels in 2 words ("Platon", "bamboo") = 5/2 = 2.5
+2 vowels in 1 word ("boats") = 2/1 = 2
+2 vowels in 1 word ("made") = 2/1 = 2
+```
+
