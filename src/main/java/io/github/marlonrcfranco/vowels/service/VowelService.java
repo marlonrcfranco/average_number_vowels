@@ -12,7 +12,9 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class VowelService {
 
-    public List<ResponseDto> getAverageNumberVowels(String[] text) {
+    public List<ResponseDto> getAverageNumberVowels(String[] text) throws IllegalArgumentException {
+        if (text == null) throw new IllegalArgumentException();
+
         Map<VowelKeyDto, VowelValueDto> response = new HashMap<>();
 
         for (String word : text) {

@@ -17,14 +17,6 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class FileUtils {
 
-    public static String[] readInput() {
-        try {
-            return readInput("INPUT.TXT");
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
     public static String[] readInput(String inputFile) throws IOException {
         Scanner input = new Scanner(new FileReader(inputFile));
         List<String> content = new ArrayList<>();
