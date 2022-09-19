@@ -30,3 +30,16 @@ Explanation:
 2 vowels in 1 word ("made") = 2/1 = 2
 ```
 
+Inicializar dois HashMaps:
+   key -> value
+ ({vowels}, wordLength) -> (wordCounter, averageNumberVowels)
+
+
+Para cada palavra na lista:
+ - Gerar a chave (key):
+   - obter as vogais da palavra
+   - obter o tamanho da palavra
+ - Inserir no HashMap:
+   - Incrementa o contador no HashMap para a key gerada
+   - Calcular a media de vogais por palavras encontradas e amazenar no averageNumberVowels
+
