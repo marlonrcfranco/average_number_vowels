@@ -6,7 +6,7 @@ import io.github.marlonrcfranco.vowels.service.VowelService;
 public class Main {
 
     public static void main(String[] args) {
-        String text = FileUtils.readInput();
+        String[] text = FileUtils.readInput();
         VowelService vowelService = new VowelService();
         FileUtils.writeOutput(vowelService.getAverageNumberVowels(text));
     }

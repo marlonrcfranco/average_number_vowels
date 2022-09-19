@@ -5,13 +5,11 @@ import lombok.Data;
 
 import java.util.Set;
 
-/**
- * Example: ({a,o},7)
- */
 @Data
 @Builder
-public class VowelKeyDto {
+public class ResponseDto {
+
     private Set<Character> vowels;
     private Integer wordLength;
-
+    private Double average;
 }
