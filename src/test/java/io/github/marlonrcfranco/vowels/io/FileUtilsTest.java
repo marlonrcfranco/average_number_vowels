@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FileUtilsTest {
 
-    private static final String INPUT_TEST_FILE = "src/test/resources/input.txt";
+    private static final String INPUT_TEST_FILE = "src/test/resources/INPUT.TXT";
     private static final String OUTPUT_TEST_FILE = "src/test/resources/output_test.txt";
 
     @AfterAll
