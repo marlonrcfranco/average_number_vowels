@@ -19,15 +19,15 @@ Platon made bamboo boats.
 OUTPUT:
 ```
 ({a, o}, 6) -> 2.5
-({a, o}, 5) -> 2
-({a, e}, 4) -> 2
+({a, o}, 5) -> 2.0
+({a, e}, 4) -> 2.0
 ```
 
 ### Explanation:
 ```
 5 vowels in 2 words ("Platon", "bamboo") = 5/2 = 2.5
-2 vowels in 1 word ("boats") = 2/1 = 2
-2 vowels in 1 word ("made") = 2/1 = 2
+2 vowels in 1 word ("boats") = 2/1 = 2.0
+2 vowels in 1 word ("made") = 2/1 = 2.0
 ```
 
 Initialize a HashMap:
