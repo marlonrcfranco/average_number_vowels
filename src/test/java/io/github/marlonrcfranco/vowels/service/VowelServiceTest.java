@@ -1,27 +1,18 @@
 package io.github.marlonrcfranco.vowels.service;
 
 import io.github.marlonrcfranco.vowels.dto.ResponseDto;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class VowelServiceTest {
-
-    private VowelService service;
-
-    @BeforeAll
-    public void init() {
-        service = new VowelService();
-    }
 
     @Test
     public void test_getAverageNumberVowels_success() {
+        VowelService service = new VowelService();
         String text = ".Platon. made bamboo boats.";
         List<ResponseDto> expected = List.of(
                 ResponseDto.builder().vowels(Set.of("a".charAt(0),"o".charAt(0))).wordLength(6).average(2.5).build(),
