@@ -4,6 +4,33 @@
   <groupId>io.github.marlonrcfranco</groupId>
   <artifactId>vowels</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Archetype - vowels</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>16</source>
+          <target>16</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <name>average-number-vowels</name>
   <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.9.0</version>
+    </dependency>
+  </dependencies>
+
+
 </project>
