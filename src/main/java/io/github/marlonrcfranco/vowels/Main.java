@@ -4,7 +4,6 @@ import io.github.marlonrcfranco.vowels.dto.ResponseDto;
 import io.github.marlonrcfranco.vowels.io.FileUtils;
 import io.github.marlonrcfranco.vowels.service.VowelService;
 
-import java.io.IOException;
 import java.util.List;
 
 public class Main {
