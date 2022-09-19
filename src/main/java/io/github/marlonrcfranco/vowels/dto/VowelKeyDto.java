@@ -13,5 +13,4 @@ import java.util.Set;
 public class VowelKeyDto {
     private Set<Character> vowels;
     private Integer wordLength;
-
 }

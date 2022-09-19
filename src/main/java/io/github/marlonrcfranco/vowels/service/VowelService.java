@@ -16,12 +16,15 @@ public class VowelService {
         Map<VowelKeyDto, VowelValueDto> response = new HashMap<>();
 
         for (String word : text) {
-            VowelKeyDto key = generateKey(word);
+            word = sanitize(word);
+            List<Character> vowels = getVowels(word);
+            VowelKeyDto key = generateKey(vowels, word.length());
             VowelValueDto oldValue = Optional.ofNullable(response.get(key))
                     .orElse(VowelValueDto.builder()
                             .wordCounter(0)
+                            .vowelCounter(0)
                             .build());
-            VowelValueDto value = generateValue(key, oldValue);
+            VowelValueDto value = generateValue(key, vowels.size(), oldValue);
             response.put(key, value);
         }
         return response.keySet().stream()
@@ -29,30 +32,41 @@ public class VowelService {
                 .collect(Collectors.toList());
     }
 
-    private VowelKeyDto generateKey(String word) {
-        Set<Character> vowels = word.chars()
+    private String sanitize(String word) {
+        return word.replaceAll("[^A-Za-z0-9]", "");
+    }
+
+    private List<Character> getVowels(String word) {
+        return word.chars()
                 .mapToObj(c -> (char) c)
                 .filter(c -> "aeiou".indexOf(c) > -1)
-                .collect(Collectors.toSet());
+                .toList();
+    }
+
+    private VowelKeyDto generateKey(List<Character> vowels, Integer wordLength) {
         return VowelKeyDto.builder()
-                .vowels(vowels)
-                .wordLength(word.length())
+                .vowels(new HashSet<>(vowels))
+                .wordLength(wordLength)
                 .build();
     }
 
-    private VowelValueDto generateValue(VowelKeyDto key, VowelValueDto oldValue) {
-        Integer wordCounter = oldValue.getWordCounter() + 1;
-        return VowelValueDto.builder()
-                .wordCounter(wordCounter)
-                .averageNumberVowels(getAverage(key, wordCounter))
-                .build();
-    }
-
-    private Double getAverage(VowelKeyDto key, Integer wordCounter) throws IllegalArgumentException {
-        if (wordCounter == null || wordCounter <= 0 || key == null || key.getVowels() == null) {
+    private VowelValueDto generateValue(VowelKeyDto key, Integer numVowels, VowelValueDto oldValue) {
+        if (key == null || key.getVowels() == null) {
             throw new IllegalArgumentException();
         }
-        Integer numVowels = key.getVowels().size();
-        return (double) (numVowels / wordCounter);
+        Integer wordCounter = oldValue.getWordCounter() + 1;
+        Integer vowelCounter = oldValue.getVowelCounter() + numVowels;
+        return VowelValueDto.builder()
+                .wordCounter(wordCounter)
+                .vowelCounter(vowelCounter)
+                .averageNumberVowels(getAverage(vowelCounter, wordCounter))
+                .build();
+    }
+
+    private Double getAverage(Integer vowelCounter, Integer wordCounter) throws IllegalArgumentException {
+        if (wordCounter == null || wordCounter <= 0) {
+            throw new IllegalArgumentException();
+        }
+        return (double) vowelCounter / (double) wordCounter;
     }
 }
